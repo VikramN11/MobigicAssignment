@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 
 const multer = require('multer');
 
-const { postFile, getFile } = require('../controllers/uploadController');
+const { postFile, getFile, deleteFile } = require('../controllers/uploadController');
 
 
 const uploadedFileRouter = express.Router();
@@ -22,8 +22,11 @@ const storage = multer.diskStorage({
 //Multer Upload
 const uploadedFile = multer({storage : storage});
 
+uploadedFileRouter.get("/", getFile);
+
 uploadedFileRouter.post('/upload', uploadedFile.single('filename'), postFile);
 
-uploadedFileRouter.get("/", getFile)
+uploadedFileRouter.delete("/delete/:id", deleteFile)
+
 
 module.exports = uploadedFileRouter

@@ -11,9 +11,9 @@ const getFile = async (req, res)=>{
         jwt.verify(token, 'mobigic', async(err, decoded)=>{
             if(decoded){
                 const userId = decoded.userID;
-                const uploadedFiles = await Upload.find();
+                // const uploadedFiles = await Upload.find();
                 const userUploadedFiles = await Upload.find({user: userId});
-                res.send({uploadedFiles, userUploadedFiles});
+                res.send({userUploadedFiles});
             }
             else{
                 res.send({"message":err.message});
@@ -48,4 +48,30 @@ const postFile = async (req, res)=>{
 }
 
 
-module.exports = {postFile, getFile};
+// DELETE file
+// route "/uploadedFiles/delete/:id"
+// access private
+const deleteFile = async (req, res)=>{
+    const payload = req.body;
+    const id = req.params.id;
+    const upload = await Upload.findOne({"_id":id});
+    const userID_of_upload = upload.user;
+    const userID_request = req.user;
+    console.log(userID_of_upload, userID_request);
+    try {
+        if(userID_request !== userID_of_upload){
+            res.send({"msg":"You are not Authorized"});
+        }
+        else{
+            await Upload.findByIdAndDelete({"_id":id});
+            res.send("Deleted the Blog");
+        }
+    } 
+    catch(err){
+        console.log(err.message);
+        res.send({"msg":"Something went wrong"});
+    }
+}
+
+
+module.exports = {postFile, getFile, deleteFile};
