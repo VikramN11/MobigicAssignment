@@ -1,7 +1,9 @@
 const express = require('express');
+const cors = require('cors');
 const { connection } = require('./db');
 const { userRouter } = require('./routes/User.route');
 const { authenticate } = require('./middleware/authenticate.middleware');
+const uploadedFileRouter = require('./routes/Uploadedfile.route');
 
 require('dotenv').config();
 
@@ -10,6 +12,7 @@ const port = process.env.PORT || 8000;
 const app = express();
 
 app.use(express.json());
+app.use(cors({origin: "*"}));
 
 //route for Home Page
 app.get("/", (req, res)=>{
@@ -21,7 +24,7 @@ app.use("/users", userRouter);
 
 app.use(authenticate);
 
-
+app.use("/uploadedFiles", uploadedFileRouter);
 
 app.listen(port, async ()=>{
     try {
