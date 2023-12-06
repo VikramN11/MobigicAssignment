@@ -1,5 +1,8 @@
+const fs = require('fs');
+const path = require('path');
 const jwt = require('jsonwebtoken');
 const Upload = require("../model/Uploadedfile.model");
+const pathfile = require('../path');
 
 // GET files
 // route "/uploadedFiles/"
@@ -53,11 +56,30 @@ const postFile = async (req, res)=>{
 // access private
 const deleteFile = async (req, res)=>{
     const payload = req.body;
+
     const id = req.params.id;
+
     const upload = await Upload.findOne({"_id":id});
+
+    const filePath = path.join(pathfile,'uploadedfiles', upload.filename);
+
+
+  // Delete the file
+  fs.unlink(filePath, (err) => {
+    if (err) {
+      console.error('Error deleting file:', err);
+    } else {
+      console.log('File deleted successfully');
+    }
+  });
+
+
+    //user we are getting from document we want to delete
     const userID_of_upload = upload.user;
+
+    //user we are getting while authenticating
     const userID_request = req.user;
-    console.log(userID_of_upload, userID_request);
+
     try {
         if(userID_request !== userID_of_upload){
             res.send({"msg":"You are not Authorized"});
