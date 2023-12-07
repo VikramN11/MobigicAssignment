@@ -1,0 +1,32 @@
+.signupContainer{
+    width: 35vw;
+    height: 50vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+    background-color: whitesmoke;
+    margin-top: 10%;
+    border-radius: 5px;
+}
+
+
+.signupContainer>input{
+    width: 20vw;
+    height: 5vh;
+    border-radius: 5px;
+}
+
+.signupContainer>input[type="submit"]{
+     background-color: #00baf2;
+     color: white;
+     border: none;
+     cursor: pointer;
+}
+
+.signupContainer>p>a{
+    text-decoration: none;
+    color: #00baf2;
+}
