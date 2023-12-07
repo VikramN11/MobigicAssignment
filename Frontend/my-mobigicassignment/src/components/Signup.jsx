@@ -17,10 +17,9 @@ import { useState } from 'react';
         console.log(password);
         alert('Password must be at least 6 characters long.');
       } else {
-      try{
-        const payload = new FormData();
-        payload.append('username', username);
-        payload.append('password', password);
+        const payload = {
+            username, password
+        }
   
         await axios.post(`https://funny-bee-housecoat.cyclic.app/users/register`, payload).then(res=>{
           console.log(res.data);
@@ -30,10 +29,6 @@ import { useState } from 'react';
           setPassword('');
          }).catch(err=>{
           console.log(err)});
-      }
-      catch (error) {
-          console.log(error);
-        }
     }
   }
 
@@ -56,14 +51,6 @@ import { useState } from 'react';
         value={password}
         onChange={e=>setPassword(e.target.value)}
       />
-      {/* <input
-        type="file"
-        name="profile"
-        onChange={(e)=>{
-          console.log(e.target.files[0]);
-          setProfile(e.target.files[0])
-        }}
-      /><br /> */}
       
       <input type="submit" value="Sign Up" />
       <p>Already Signed up? <Link style={{color:"blue"}} to={"/signin"}>Login</Link></p>

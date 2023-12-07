@@ -19,7 +19,7 @@ import {Link} from "react-router-dom";
      else {
        const payload = {username, password}
  
-       axios.post(`http://localhost:8080/users/login`, payload).then(res=>{
+       axios.post(`https://funny-bee-housecoat.cyclic.app/users/login`, payload).then(res=>{
          console.log(res.data);
          alert("Logged In Successfully");
          localStorage.setItem("token", res.data.token);

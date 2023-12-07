@@ -6,7 +6,7 @@ const UploadedFiles = () => {
     const [uploads, setUploads] = useState([]);
 
     const getData = ()=>{
-        axios.get(`http://localhost:8080/uploadedFiles/`,{
+        axios.get(`https://funny-bee-housecoat.cyclic.app/uploadedFiles/`,{
             headers: {
                 'Authorization': localStorage.getItem("token"),
             }
@@ -20,6 +20,10 @@ const UploadedFiles = () => {
 
     useEffect(()=>{
         getData();
+
+        return ()=>{
+            console.log("cleanup function");
+        }
       },[]);
 
 
