@@ -12,7 +12,7 @@ const port = process.env.PORT || 8000;
 const app = express();
 
 app.use(express.json());
-app.use(cors({origin: "*"}));
+app.use(cors());
 
 //route for Home Page
 app.get("/", (req, res)=>{

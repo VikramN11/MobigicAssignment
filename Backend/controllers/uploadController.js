@@ -35,6 +35,7 @@ const getFile = async (req, res)=>{
 // access private
 const postFile = async (req, res)=>{
     console.log(req.body);
+    console.log(req.file);
     try {
         const filename = req.file.filename;
         //Save file details to the database

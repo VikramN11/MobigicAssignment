@@ -12,7 +12,7 @@ const uploadedFileRouter = express.Router();
 // Multer Storage
 const storage = multer.diskStorage({
     destination: (req, file, cb)=>{
-        cb(null, 'uploadedfiles/');
+        cb(null, './uploadedfiles');
     },
     filename: (req, file, cb)=>{
         cb(null, `${Date.now()}-${file.originalname}`);
@@ -24,7 +24,7 @@ const uploadedFile = multer({storage : storage});
 
 uploadedFileRouter.get("/", getFile);
 
-uploadedFileRouter.post('/upload', uploadedFile.single('filename'), postFile);
+uploadedFileRouter.post('/upload', uploadedFile.single('file'), postFile);
 
 uploadedFileRouter.delete("/delete/:id", deleteFile)
 
