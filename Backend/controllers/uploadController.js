@@ -7,7 +7,7 @@ const pathfile = require('../path');
 // GET files
 // route "/uploadedFiles/"
 // access private
-const getFile = async (req, res)=>{
+const getFiles = async (req, res)=>{
     const token = req.headers.authorization;
     console.log(token);
     if(token){
@@ -42,15 +42,30 @@ const postFile = async (req, res)=>{
     try {
         const filename = req.file.filename;
         //Save file details to the database
-        const upload = new Upload({filename, code : Math.floor(100000 + Math.random()*900000), user : req.user, file : req.file});
+        const upload = new Upload({filename, code : Math.floor(100000 + Math.random()*900000), user : req.user});
 
         await upload.save();
         console.log(upload);
-        res.status(201).json({message : 'File uploaded successfully', upload});
+        res.status(201).json({message : 'File uploaded successfully', upload, file : req.file});
 
     } catch (error) {
         console.log(error.message);
        res.status(500).json({message: 'Internal server error'}) 
+    }
+}
+
+// GET id file
+// route "/uploadedFiles/get/:id"
+// access private
+const getFile = async(req, res)=>{
+    try {
+        const id = req.params.id;
+
+        const userUploadedFiles = await Upload.findOne({"_id":id});
+        res.send({userUploadedFiles}); 
+    } catch (error) {
+        console.log(error);
+        res.send({message : error.message});
     }
 }
 
@@ -100,4 +115,4 @@ const deleteFile = async (req, res)=>{
 }
 
 
-module.exports = {postFile, getFile, deleteFile};
+module.exports = {postFile, getFiles, deleteFile, getFile};
