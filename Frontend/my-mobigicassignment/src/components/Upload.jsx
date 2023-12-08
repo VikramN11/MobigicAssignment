@@ -14,9 +14,7 @@ const Upload = () => {
          console.log(payload);
    
          axios.post(`http://localhost:8080/uploadedFiles/upload`, payload, {
-            credentials: 'include',
             headers: {
-                'Accept': 'application/json',
                 'Authorization': localStorage.getItem("token"),
                 'Content-Type': 'multipart/form-data',
             },
