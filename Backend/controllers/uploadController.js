@@ -60,9 +60,12 @@ const postFile = async (req, res)=>{
 const getFile = async(req, res)=>{
     try {
         const id = req.params.id;
-
+        
         const userUploadedFiles = await Upload.findOne({"_id":id});
-        res.send({userUploadedFiles}); 
+
+        const filePath = path.join(pathfile,'uploadedfiles', userUploadedFiles.filename);
+
+        res.send({userUploadedFiles, filePath}); 
     } catch (error) {
         console.log(error);
         res.send({message : error.message});
