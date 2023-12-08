@@ -34,6 +34,9 @@ const getFile = async (req, res)=>{
 // route "/uploadedFiles/userfile"
 // access private
 const postFile = async (req, res)=>{
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
     console.log(req.body);
     console.log(req.file);
     try {
