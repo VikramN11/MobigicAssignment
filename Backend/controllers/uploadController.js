@@ -64,6 +64,7 @@ const getFile = async(req, res)=>{
         const userUploadedFiles = await Upload.findOne({"_id":id});
 
         const filePath = path.join(pathfile,'uploadedfiles', userUploadedFiles.filename);
+        console.log(filePath);
 
         res.send({userUploadedFiles, filePath}); 
     } catch (error) {

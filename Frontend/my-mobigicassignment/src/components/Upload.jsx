@@ -13,7 +13,7 @@ const Upload = () => {
         payload.append('file', file);
          console.log(payload);
    
-         axios.post(`https://funny-bee-housecoat.cyclic.app/uploadedFiles/upload`, payload, {
+         axios.post(`http://localhost:8080/uploadedFiles/upload`, payload, {
             credentials: 'include',
             headers: {
                 'Accept': 'application/json',
@@ -31,7 +31,7 @@ const Upload = () => {
 
   return (
     <div>
-      <input type="file" id='fileInput' onChange={(e)=>setFile(e.target.files[0])} />
+      <input type="file" id='fileInput' accept=".txt, .pdf, .png, .jpg, .jpeg" onChange={(e)=>setFile(e.target.files[0])} />
       <button onClick={handleUpload}>Upload</button>
     </div>
   )
