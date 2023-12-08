@@ -12,15 +12,6 @@ const port = process.env.PORT || 8000;
 const app = express();
 
 app.use(express.json());
-
-// Configure CORS for file upload routes
-const corsOptions = {
-    origin: 'http://localhost:3000',  
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-  };
-  
-  app.options('/uploadedFiles', cors(corsOptions));  // Handle preflight
   
 
 app.use(cors());
