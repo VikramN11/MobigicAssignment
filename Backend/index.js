@@ -15,9 +15,9 @@ app.use(express.json());
 
 // Configure CORS for file upload routes
 const corsOptions = {
-    origin: 'https://funny-bee-housecoat.cyclic.app/',  
+    origin: '*',  
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true, 
+    credentials: true,
   };
   
   app.options('/uploadedFiles', cors(corsOptions));  // Handle preflight
