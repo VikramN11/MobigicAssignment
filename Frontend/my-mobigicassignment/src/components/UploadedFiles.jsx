@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import SingleUpload from './SingleUpload';
 import axios from 'axios';
 
-const UploadedFiles = ({sharedState}) => {
+const UploadedFiles = ({sharedState, handleState}) => {
     const [uploads, setUploads] = useState([]);
 
     const getData = ()=>{
@@ -29,7 +29,7 @@ const UploadedFiles = ({sharedState}) => {
 
   return (
     <div>
-        {uploads?.map(el=> <SingleUpload key={el._id} {...el}/>)}
+        {uploads?.map(el=> <SingleUpload key={el._id} {...el} sharedState={sharedState} handleState={handleState} />)}
     </div>
   )
 }

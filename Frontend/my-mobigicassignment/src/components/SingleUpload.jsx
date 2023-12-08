@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import style from "../Style/SingleUpload.module.css";
 
-const SingleUpload = ({_id, filename, code, user}) => {
+const SingleUpload = ({_id, filename, code, user, sharedState, handleState}) => {
     let downloadInProgress = false;
     const navigate = useNavigate();
 
@@ -50,6 +50,7 @@ const SingleUpload = ({_id, filename, code, user}) => {
             }
         }).then(res=>{
             console.log(res.data);
+            handleState(sharedState.filter(obj => obj._id !== id));
         }).catch(err=>{
             console.log(err.message);
         })

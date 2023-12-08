@@ -10,7 +10,7 @@ const [sharedState, setSharedState] = useState([]);
   }
   return (
     <div>
-        <UploadedFiles sharedState={sharedState}/>
+        <UploadedFiles sharedState={sharedState} handleState={handleState}/>
         <Upload sharedState={sharedState} handleState={handleState}/>
     </div>
   )
