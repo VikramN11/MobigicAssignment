@@ -12,6 +12,17 @@ const port = process.env.PORT || 8000;
 const app = express();
 
 app.use(express.json());
+
+// Configure CORS for file upload routes
+const corsOptions = {
+    origin: 'https://funny-bee-housecoat.cyclic.app/',  
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true, 
+  };
+  
+  app.options('/uploadedFiles', cors(corsOptions));  // Handle preflight
+  
+
 app.use(cors());
 
 //route for Home Page
@@ -23,6 +34,7 @@ app.get("/", (req, res)=>{
 app.use("/users", userRouter);
 
 app.use(authenticate);
+
 
 app.use("/uploadedFiles", uploadedFileRouter);
 
