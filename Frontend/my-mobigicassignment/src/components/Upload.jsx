@@ -13,8 +13,10 @@ const Upload = () => {
         payload.append('file', file);
          console.log(payload);
    
-         axios.post(`http://localhost:8080/uploadedFiles/upload`, payload, {
+         axios.post(`https://funny-bee-housecoat.cyclic.app/uploadedFiles/upload`, payload, {
+            credentials: 'include',
             headers: {
+                'Accept': 'application/json',
                 'Authorization': localStorage.getItem("token"),
                 'Content-Type': 'multipart/form-data',
             },
