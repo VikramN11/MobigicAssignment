@@ -24,5 +24,6 @@ Backend - [https://funny-bee-housecoat.cyclic.app/](#https://funny-bee-housecoat
 - Login with same username and password
 - Upload a file
 - Access of downloading and deleting it
+- While asking for code put code that is getting from uploaded file data
 
 
