@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const Upload = () => {
+const Upload = ({sharedState, handleState}) => {
  
     const [file, setFile] = useState();
 
@@ -20,8 +20,8 @@ const Upload = () => {
             },
         }).then(res=>{
            console.log(res.data);
+           handleState([...sharedState, res.data])
            alert("Uploaded Successfully");
-           window.location.reload();
           }).catch(err=>{
            console.log(err)});
        }

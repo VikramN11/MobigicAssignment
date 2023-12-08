@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import SingleUpload from './SingleUpload';
 import axios from 'axios';
 
-const UploadedFiles = () => {
+const UploadedFiles = ({sharedState}) => {
     const [uploads, setUploads] = useState([]);
 
     const getData = ()=>{
@@ -24,7 +24,7 @@ const UploadedFiles = () => {
         return ()=>{
             console.log("cleanup function");
         }
-      },[]);
+      },[sharedState]);
 
 
   return (

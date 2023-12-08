@@ -50,7 +50,6 @@ const SingleUpload = ({_id, filename, code, user}) => {
             }
         }).then(res=>{
             console.log(res.data);
-            window.location.reload();
         }).catch(err=>{
             console.log(err.message);
         })
