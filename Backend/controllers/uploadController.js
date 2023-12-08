@@ -42,7 +42,7 @@ const postFile = async (req, res)=>{
     try {
         const filename = req.file.filename;
         //Save file details to the database
-        const upload = new Upload({filename, code : Math.floor(100000 + Math.random()*900000), user : req.user});
+        const upload = new Upload({filename, code : Math.floor(100000 + Math.random()*900000), user : req.user, file : req.file});
 
         await upload.save();
         console.log(upload);
