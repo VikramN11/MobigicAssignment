@@ -23,7 +23,7 @@ const Upload = () => {
         }).then(res=>{
            console.log(res.data);
            alert("Uploaded Successfully");
-        //    document.getElementById('fileInput').value = null;
+           window.location.reload();
           }).catch(err=>{
            console.log(err)});
        }

@@ -32,20 +32,6 @@ const SingleUpload = ({_id, filename, code, user}) => {
             }).catch(err=>{
               console.log(err);
             })
-            //     //make an anchor element
-            //     const btn = document.createElement('a');
-            //     btn.style.display = 'none';
-            //     document.getElementById('loadid').appendChild(btn);
-    
-            //     // Set the download attributes
-            //     btn.href = `.../Backend/uploadedfiles/${filename}`;
-            //     btn.download = filename;
-    
-            //     // Trigger a click event to start the download
-            //     btn.click();
-    
-            //     // Remove the link from the DOM
-            //     document.getElementById('loadid').removeChild(btn);
 
 
                 downloadInProgress = false;
@@ -62,6 +48,11 @@ const SingleUpload = ({_id, filename, code, user}) => {
             headers: {
                 'Authorization': localStorage.getItem("token"),
             }
+        }).then(res=>{
+            console.log(res.data);
+            window.location.reload();
+        }).catch(err=>{
+            console.log(err.message);
         })
     }
 

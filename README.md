@@ -1,36 +1,27 @@
 # Mobigic Nodejs Project
 
 It is Full-Stack project with MERN stack is used as it's tech stack.
+Uploading files with deleting and downloading it are the features added in it.
 
+## Deployed Links
 
-## Table of Contents
+Frontend - [https://steady-pavlova-7b429b.netlify.app/](#https://steady-pavlova-7b429b.netlify.app/)
 
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installing Dependencies](#installing-dependencies)
-  - [Configuration](#configuration)
-- [Running the Application](#running-the-application)
-  - [Frontend](#frontend)
-  - [Backend](#backend)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+Backend - [https://funny-bee-housecoat.cyclic.app/](#https://funny-bee-housecoat.cyclic.app/)
+  
 
-## Getting Started
+## Features
 
-### Prerequisites
+- User registration and login 
+- Uploading files
+- Access of downloading and deleting files
 
-- [Node.js](https://nodejs.org/) installed
-- [npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/) package manager
+## Instructions to run the project
 
-### Installing Dependencies
+- simply open frontend deployed link 
+- Register with username and password
+- Login with same username and password
+- Upload a file
+- Access of downloading and deleting it
 
-```bash
-# Install frontend dependencies
-cd frontend
-npm install  # or yarn install
-
-# Install backend dependencies
-cd ../backend
-npm install  # or yarn install
 
