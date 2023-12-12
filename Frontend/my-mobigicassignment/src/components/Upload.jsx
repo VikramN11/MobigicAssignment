@@ -10,7 +10,7 @@ const Upload = ({sharedState, handleState}) => {
          alert('Please choose a file');
        } else {
         const payload = new FormData();
-        payload.append('file', file);
+        payload.append('filename', file);
          console.log(payload);
    
          axios.post(`https://funny-bee-housecoat.cyclic.app/uploadedFiles/upload`, payload, {
@@ -29,7 +29,7 @@ const Upload = ({sharedState, handleState}) => {
 
   return (
     <div>
-      <input type="file" name='file' id='fileInput' accept=".txt, .pdf, .png, .jpg, .jpeg" onChange={(e)=>setFile(e.target.files[0])} />
+      <input type="file" name='filename' id='fileInput' accept=".txt, .pdf, .png, .jpg, .jpeg" onChange={(e)=>setFile(e.target.files[0])} />
       <button onClick={handleUpload}>Upload</button>
     </div>
   )
