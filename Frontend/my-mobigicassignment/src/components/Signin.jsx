@@ -29,7 +29,7 @@ import {Link} from "react-router-dom";
          setPassword('');
          }
          else{
-          alert("Something went wrong!");
+          alert("Something went wrong");
          }
         }).catch(err=>{
           console.log(err);
