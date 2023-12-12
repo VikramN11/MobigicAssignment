@@ -34,9 +34,9 @@ const getFiles = async (req, res)=>{
 // route "/uploadedFiles/userfile"
 // access private
 const postFile = async (req, res)=>{
-    console.log(req.body);
-    console.log(req.file);
     try {
+        console.log(req.body);
+        console.log(req.file);
         const filename = req.file.filename;
         //Save file details to the database
         const upload = new Upload({filename, code : Math.floor(100000 + Math.random()*900000), user : req.user});
