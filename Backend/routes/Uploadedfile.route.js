@@ -1,5 +1,7 @@
 const express = require('express');
 
+const fs = require('fs');
+
 const jwt = require('jsonwebtoken');
 
 const multer = require('multer');
@@ -12,7 +14,11 @@ const uploadedFileRouter = express.Router();
 // Multer Storage
 const storage = multer.diskStorage({
     destination: (req, file, cb)=>{
-        cb(null, './uploadedfiles');
+        const destination = './uploadedfiles';
+        if (!fs.existsSync(destination)) {
+            fs.mkdirSync(destination);
+        }
+        cb(null, destination);
     },
     filename: (req, file, cb)=>{
         cb(null, `${Date.now()}-${file.originalname}`);
