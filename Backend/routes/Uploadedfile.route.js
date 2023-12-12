@@ -20,11 +20,11 @@ const storage = multer.diskStorage({
 });
 
 //Multer Upload
-const uploadedFile = multer({storage : storage});
+const uploadedFile = multer({storage : storage}).single('file');
 
 uploadedFileRouter.get("/", getFiles);
 
-uploadedFileRouter.post('/upload', uploadedFile.single('file'), postFile);
+uploadedFileRouter.post('/upload', postFile);
 
 uploadedFileRouter.get('/:id', getFile);
 

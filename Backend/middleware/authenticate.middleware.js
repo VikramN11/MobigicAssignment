@@ -5,7 +5,7 @@ const authenticate = (req, res, next) =>{
     console.log(token);
     if(token){
         jwt.verify(token, 'mobigic', function(err, decoded) {
-            console.log(decoded.userID);
+            console.log(decoded);
             if(decoded){
                 req.user = decoded.userID;
                 next();
