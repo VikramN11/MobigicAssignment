@@ -14,7 +14,7 @@ const uploadedFileRouter = express.Router();
 // Multer Storage
 const storage = multer.diskStorage({
     destination: (req, file, cb)=>{
-        const destination = '../uploadedfiles';
+        const destination = './uploadedfiles';
         if (!fs.existsSync(destination)) {
             fs.mkdirSync(destination);
         }
@@ -26,11 +26,20 @@ const storage = multer.diskStorage({
 });
 
 //Multer Upload
-const uploadedFile = multer({storage : storage}).single('file');
+const uploadedFile = multer({storage : storage}).single('filename');
 
 uploadedFileRouter.get("/", getFiles);
 
-uploadedFileRouter.post('/upload', uploadedFile, postFile);
+uploadedFileRouter.post('/upload', (req, res, next) => {
+    console.log(req.body);  // Log request body
+    console.log(req.file);  // Log uploaded file
+    uploadedFile(req, res, (err) => {
+        if (err) {
+            return res.status(500).json({ message: 'Multer error', error: err });
+        }
+        next();
+    });
+}, postFile);
 
 uploadedFileRouter.get('/:id', getFile);
 
