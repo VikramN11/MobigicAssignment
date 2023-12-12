@@ -18,7 +18,6 @@ Backend - [https://funny-bee-housecoat.cyclic.app/](#https://funny-bee-housecoat
 
 ## Instructions to run the project
 
-- Start the server with command 'npm run server'
 - simply open frontend deployed link 
 - Register with username and password
 - Login with same username and password
