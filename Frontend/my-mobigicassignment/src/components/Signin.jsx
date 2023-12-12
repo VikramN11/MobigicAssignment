@@ -20,12 +20,17 @@ import {Link} from "react-router-dom";
        const payload = {username, password}
  
        axios.post(`https://funny-bee-housecoat.cyclic.app/users/login`, payload).then(res=>{
-         console.log(res.data);
+         if(res.data.token){
+          console.log(res.data);
          alert("Logged In Successfully");
          localStorage.setItem("token", res.data.token);
          navigate("/userinfo");
          setUsername('');
          setPassword('');
+         }
+         else{
+          alert("Something went wrong!");
+         }
         }).catch(err=>{
           console.log(err);
         })
