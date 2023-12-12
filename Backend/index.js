@@ -11,12 +11,13 @@ const port = process.env.PORT || 8000;
 
 const app = express();
 
+app.use(cors());
+
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
   
 
-app.use(cors());
 
 //route for Home Page
 app.get("/", (req, res)=>{
