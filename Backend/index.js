@@ -11,7 +11,14 @@ const port = process.env.PORT || 8000;
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+    origin: 'https://steady-pavlova-7b429b.netlify.app/',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+    optionsSuccessStatus: 204, 
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 
