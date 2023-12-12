@@ -13,7 +13,7 @@ const Upload = ({sharedState, handleState}) => {
         payload.append('file', file);
          console.log(payload);
    
-         axios.post(`http://localhost:8080/uploadedFiles/upload`, payload, {
+         axios.post(`https://funny-bee-housecoat.cyclic.app/uploadedFiles/upload`, payload, {
             headers: {
                 'Authorization': localStorage.getItem("token"),
                 'Content-Type': 'multipart/form-data',
