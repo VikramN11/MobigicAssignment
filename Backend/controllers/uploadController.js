@@ -3,7 +3,6 @@ const path = require('path');
 const jwt = require('jsonwebtoken');
 const Upload = require("../model/Uploadedfile.model");
 const pathfile = require('../path');
-const { uploadedFile } = require('../routes/Uploadedfile.route');
 
 // GET files
 // route "/uploadedFiles/"
@@ -36,12 +35,6 @@ const getFiles = async (req, res)=>{
 // access private
 const postFile = async (req, res)=>{
     try {
-        uploadedFile(req, res, async function (err) {
-            if (err instanceof multer.MulterError) {
-              res.send({message : 'Multer Error'});
-            } else if (err) {
-              res.send({message : 'unknown error'});
-            }
             console.log(req.body);
             console.log(req.file);
             const filename = req.file.filename;
@@ -51,7 +44,6 @@ const postFile = async (req, res)=>{
             await upload.save();
             console.log(upload);
             res.status(201).json({message : 'File uploaded successfully', upload, file : req.file});
-          })
 
     } catch (error) {
         console.log(error.message);

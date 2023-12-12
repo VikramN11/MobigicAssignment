@@ -3,7 +3,7 @@ const cors = require('cors');
 const { connection } = require('./db');
 const { userRouter } = require('./routes/User.route');
 const { authenticate } = require('./middleware/authenticate.middleware');
-const { uploadedFileRouter } = require('./routes/Uploadedfile.route');
+const uploadedFileRouter = require('./routes/Uploadedfile.route');
 
 require('dotenv').config();
 

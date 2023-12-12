@@ -24,11 +24,11 @@ const uploadedFile = multer({storage : storage}).single('file');
 
 uploadedFileRouter.get("/", getFiles);
 
-uploadedFileRouter.post('/upload', postFile);
+uploadedFileRouter.post('/upload', uploadedFile, postFile);
 
 uploadedFileRouter.get('/:id', getFile);
 
 uploadedFileRouter.delete("/delete/:id", deleteFile)
 
 
-module.exports = {uploadedFileRouter, uploadedFile}
+module.exports = uploadedFileRouter
