@@ -31,4 +31,4 @@ uploadedFileRouter.get('/:id', getFile);
 uploadedFileRouter.delete("/delete/:id", deleteFile)
 
 
-module.exports = uploadedFileRouter
+module.exports = {uploadedFileRouter, uploadedFile}
