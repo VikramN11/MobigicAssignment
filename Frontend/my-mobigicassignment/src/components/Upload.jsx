@@ -29,7 +29,7 @@ const Upload = ({sharedState, handleState}) => {
 
   return (
     <div>
-      <input type="file" id='fileInput' accept=".txt, .pdf, .png, .jpg, .jpeg" onChange={(e)=>setFile(e.target.files[0])} />
+      <input type="file" name='file' id='fileInput' accept=".txt, .pdf, .png, .jpg, .jpeg" onChange={(e)=>setFile(e.target.files[0])} />
       <button onClick={handleUpload}>Upload</button>
     </div>
   )
