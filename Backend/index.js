@@ -1,5 +1,5 @@
 const express = require('express');
-const cors = require('cors');
+// const cors = require('cors');
 const { connection } = require('./db');
 const { userRouter } = require('./routes/User.route');
 const { authenticate } = require('./middleware/authenticate.middleware');
@@ -13,7 +13,7 @@ const port = process.env.PORT || 8000;
 const app = express();
 
 
-app.use(cors());
+// app.use(cors());
 
 app.use(express.json());
 
