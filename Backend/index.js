@@ -4,6 +4,7 @@ const { connection } = require('./db');
 const { userRouter } = require('./routes/User.route');
 const { authenticate } = require('./middleware/authenticate.middleware');
 const uploadedFileRouter = require('./routes/Uploadedfile.route');
+const path = require('path');
 
 require('dotenv').config();
 
@@ -32,6 +33,18 @@ app.use(authenticate);
 
 
 app.use("/uploadedFiles", uploadedFileRouter);
+
+//serving the frontend
+app.use(express.static(path.join(__dirname,"./Frontend/my-mobigicassignment/build")))
+
+app.get("*", (_, res)=>{
+    res.sendFile(
+        path.join(__dirname,"./Frontend/my-mobigicassignment/build/index.html"),
+        (err)=>{
+            res.status(500).send(err);
+        }
+    )
+})
 
 app.listen(port, async ()=>{
     try {

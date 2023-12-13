@@ -1,0 +1,24 @@
+.singleContainer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.singleContainer>div{
+    display: flex;
+    gap: 10px;
+}
+
+button{
+    background-color: #00baf2;
+     color: white;
+     border: none;
+     cursor: pointer;
+     padding: 5px;
+     border-radius: 5px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
