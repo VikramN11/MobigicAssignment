@@ -20,12 +20,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
   
 
-
-//route for Home Page
-app.get("/", (req, res)=>{
-    res.send("Welcome to Home Page");
-})
-
 //route for user registration, login and getting Users
 app.use("/users", userRouter);
 
