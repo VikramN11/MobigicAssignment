@@ -11,7 +11,7 @@ const UploadedFiles = ({sharedState, handleState}) => {
                 'Authorization': localStorage.getItem("token"),
             }
         }).then(res=>{
-            console.log(res.data['userUploadedFiles']);
+            console.log(res.data);
             setUploads(res.data['userUploadedFiles']);
         }).catch(err=>{
             console.log(err);
