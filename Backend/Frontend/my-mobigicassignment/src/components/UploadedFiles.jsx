@@ -6,7 +6,7 @@ const UploadedFiles = ({sharedState, handleState}) => {
     const [uploads, setUploads] = useState([]);
 
     const getData = ()=>{
-        axios.get(`/uploadedFiles/`,{
+        axios.get(`/uploadedFiles`,{
             headers: {
                 'Authorization': localStorage.getItem("token"),
             }
