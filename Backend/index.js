@@ -18,6 +18,9 @@ const app = express();
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
+
+//serving the frontend
+app.use(express.static(path.join(__dirname,"./Frontend/my-mobigicassignment/build")))
   
 
 //route for user registration, login and getting Users
@@ -28,8 +31,6 @@ app.use(authenticate);
 
 app.use("/uploadedFiles", uploadedFileRouter);
 
-//serving the frontend
-app.use(express.static(path.join(__dirname,"./Frontend/my-mobigicassignment/build")))
 
 app.get("*", (_, res)=>{
     res.sendFile(
