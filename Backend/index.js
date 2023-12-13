@@ -18,6 +18,15 @@ const app = express();
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
+  
+
+//route for user registration, login and getting Users
+app.use("/users", userRouter);
+
+app.use(authenticate);
+
+
+app.use("/uploadedFiles", uploadedFileRouter);
 
 //serving the frontend
 app.use(express.static(path.join(__dirname,"./Frontend/my-mobigicassignment/build")))
@@ -30,15 +39,6 @@ app.get("*", (_, res)=>{
         }
     )
 })
-  
-
-//route for user registration, login and getting Users
-app.use("/users", userRouter);
-
-app.use(authenticate);
-
-
-app.use("/uploadedFiles", uploadedFileRouter);
 
 
 app.listen(port, async ()=>{
