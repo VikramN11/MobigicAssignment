@@ -10,6 +10,6 @@ userRouter.post("/register", registerUser);
 userRouter.post("/login", loginUser)
 
 //Route to get all users
-userRouter.get("/", getUsers)
+userRouter.get("", getUsers)
 
 module.exports = {userRouter}
