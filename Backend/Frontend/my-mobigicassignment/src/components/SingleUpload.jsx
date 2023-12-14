@@ -28,7 +28,7 @@ const SingleUpload = ({_id, filename, code, user, sharedState, handleState}) => 
               console.log(res.data['filePath']);
              console.log(res.data['userUploadedFiles'].filename);
             
-            const url = res.data['userUploadedFiles'].filename;
+            const url = `https://funny-bee-housecoat.cyclic.app/uploadedfiles/${encodeURIComponent(res.data['userUploadedFiles'].filename)}`;
             console.log(url);
             // Open the download link in a new tab
             window.open(url, '_blank');
